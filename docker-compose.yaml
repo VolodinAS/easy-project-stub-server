@@ -1,0 +1,21 @@
+version: "3"
+
+volumes:
+    multy_stub_volume:
+
+services:
+    mongoDb:
+        image: mongo:4.4.13
+        volumes:
+            - multy_stub_volume:/data/db
+        restart: always
+        # ports:
+        #     - 27017:27017
+    multy-stubs:
+        build: .
+        restart: always
+        ports:
+            - 8043:8043
+        environment:
+            - TZ=Europe/Moscow
+            - MONGO_ADDR=mongodb

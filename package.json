@@ -1,0 +1,50 @@
+{
+  "name": "multi-stub",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx nodemon ./server",
+    "up:prod": "cross-env NODE_ENV=\"production\" node ./server",
+    "deploy:d:stop": "docker-compose down",
+    "deploy:d:build": "docker-compose build",
+    "deploy:d:up": "docker-compose up -d",
+    "redeploy": "npm run deploy:d:stop && npm run deploy:d:build && npm run deploy:d:up",
+    "eslint": "npx eslint ./server",
+    "eslint:fix": "npx eslint ./server --fix",
+    "test": "echo \"test complete\"",
+    "test:start": "start-server-and-test up:prod 8043 test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/online-mentor/multi-stub.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/online-mentor/multi-stub#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "crypto-js": "^4.1.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-jwt": "^7.7.1",
+    "express-session": "^1.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.6.8",
+    "mysql": "^2.18.1",
+    "pbkdf2-password": "^1.2.1",
+    "start-server-and-test": "^1.13.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.14",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.4",
+    "nodemon": "^2.0.6"
+  }
+}
